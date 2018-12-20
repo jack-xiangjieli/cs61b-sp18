@@ -97,8 +97,8 @@ public class IntList {
      */
     public static IntList catenate(IntList A, IntList B) {
         //TODO:  fill in method
-        IntList result=new IntList(A.first,null);
-        IntList curr=result;
+        IntList re=new IntList(A.first,null);
+        IntList curr=re;
         IntList pointA=A;
         IntList pointB=B;
         while(pointA.rest!=null){
@@ -111,7 +111,7 @@ public class IntList {
             pointB=pointB.rest;
             curr=curr.rest;
         }
-        return result;
+        return re;
     }
 
 
