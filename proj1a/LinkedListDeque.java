@@ -69,7 +69,9 @@ public class LinkedListDeque<T> {
         size += 1;
     }
 
-    /** method determining whether a deque is empty or not. */
+    /** method determining whether a deque is empty or not.
+     * @return  true if the deque is empty
+     * */
     public boolean isEmpty() {
         return this.size() == 0;
     }
@@ -91,7 +93,9 @@ public class LinkedListDeque<T> {
         }
     }
 
-    /** method that removes the first item of a deque. */
+    /** method that removes the first item of a deque.
+     * @return the item of the first node that we remove
+     * */
     public T removeFirst() {
         if (sentinel.next == null) {
             return null;
@@ -104,7 +108,9 @@ public class LinkedListDeque<T> {
 
     }
 
-    /** method that removes the last item of a deque. */
+    /** method that removes the last item of a deque.
+     * @return item of the last node that we remove
+     * */
     public T removeLast() {
         if (sentinel.front == null) {
             return null;
