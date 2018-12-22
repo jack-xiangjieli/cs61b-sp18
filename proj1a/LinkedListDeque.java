@@ -2,10 +2,10 @@ public class LinkedListDeque<T> {
 
     /* create a nested class IntList */
 
-    public class IntList<T>{
-        IntList front;
-        T item;
-        IntList next;
+    private class IntList{
+        public IntList front;
+        public T item;
+        public IntList next;
 
         public IntList(IntList f,T i,IntList n ) {
             front = f;
@@ -14,12 +14,12 @@ public class LinkedListDeque<T> {
         }
     }
 
-    IntList sentinel;
-    int size;
+    public IntList sentinel;
+    public int size;
 
     /*  constructor of LinkedListDeque*/
     public LinkedListDeque(){
-        sentinel=new IntList(null,1,null);
+        sentinel=new IntList(null,null,null);
         size=0;
     }
 
@@ -30,9 +30,16 @@ public class LinkedListDeque<T> {
     }
 
     public void addFirst(T item){
-        sentinel.next=new IntList(sentinel,item,sentinel.next);
-        sentinel.next.next.front=sentinel.next;
-        size+=1;
+        if (size==0){
+            sentinel.next=new IntList(sentinel,item,sentinel);
+            sentinel.front=sentinel.next;
+            size+=1;
+        } else {
+            sentinel.next=new IntList(sentinel,item,sentinel.next);
+            sentinel.next.next.front=sentinel.next;
+            size+=1;
+        }
+
     }
 
     public void addLast(T item){
@@ -64,7 +71,9 @@ public class LinkedListDeque<T> {
         IntList p=sentinel.next;
         sentinel.next=sentinel.next.next;
         sentinel.next.front=sentinel;
+        size-=1;
         return p.item;
+
     }
 
     public T removeLast(){
@@ -74,6 +83,7 @@ public class LinkedListDeque<T> {
         T result=sentinel.front.item;
         sentinel.front=sentinel.front.front;
         sentinel.front.next=sentinel;
+        size-=1;
         return result;
     }
 
@@ -92,6 +102,6 @@ public class LinkedListDeque<T> {
         if(index==0){
             return sentinel.next.item;
         }
-        return getRecursize(index-1);
+        return getRecursive(index-1);
     }
 }
