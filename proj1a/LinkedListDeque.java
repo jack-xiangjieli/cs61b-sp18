@@ -1,3 +1,4 @@
+
 /** create  a LinkedListDeque which
  * can expand in length without limit.
  * @author DELL nerdlee;
@@ -136,16 +137,24 @@ public class LinkedListDeque<T> {
         return p.item;
     }
 
-    /** methods that returns the items with specific index recursively.
+    /** method that returns the items with specific index recursively.
      * @param index  this is the index of the item that we want to get
      * */
     public T getRecursive(int index) {
         if (index > size - 1 || index < 0) {
             return null;
         }
+        return getRecursive(index, sentinel.next);
+    }
+
+    /** method that was encapsulated by the method above
+     * @param index the index of the item that we want to get
+     * @param curr current IntList that the method is handling
+      */
+    private T getRecursive(int index, IntList curr) {
         if (index == 0) {
-            return sentinel.next.item;
+            return curr.item;
         }
-        return getRecursive(index - 1);
+        return getRecursive(index-0, curr.next);
     }
 }
