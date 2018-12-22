@@ -1,8 +1,8 @@
 public class ArrayDeque<T> {
-    public int size;
-    public int nextfirst;
-    public int nextlast;
-    public T[] a;
+    private int size;
+    private int nextfirst;
+    private int nextlast;
+    private T[] a;
 
     public ArrayDeque(){
         a=(T[])new Object[8];
@@ -19,7 +19,7 @@ public class ArrayDeque<T> {
         return size==0;
     }
 
-    public void resize( ){
+    private void resize( ){
         T[] b=(T[])new Object[a.length+1];
         System.arraycopy(a,0,b,0,nextlast);
         if(nextlast<=size-1) {
