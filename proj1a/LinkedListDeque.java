@@ -1,4 +1,7 @@
-/*create  a LinkedListDeque which can expand in length without limit */
+/** create  a LinkedListDeque which
+ * can expand in length without limit
+ * @auther jack lee
+ */
 public class LinkedListDeque<T> {
 
     /* create a nested class IntList */
@@ -17,15 +20,15 @@ public class LinkedListDeque<T> {
     private IntList sentinel;
     private int size;
 
-    /*  constructor of LinkedListDeque*/
+    /** constructor of LinkedListDeque */
     public LinkedListDeque() {
         sentinel = new IntList(null, null, null);
         size = 0;
     }
 
-    /* utility method to add a item in the front of the deque. */
+    /** utility method to add a item in the front of the deque. */
     public void addFirst(T item) {
-        if(size == 0) {
+        if (size == 0) {
             sentinel.next = new IntList(sentinel, item, sentinel);
             sentinel.front = sentinel.next;
         } else {
@@ -36,10 +39,10 @@ public class LinkedListDeque<T> {
     }
 
     /** utility method that can  add an item
-    in the end of the deque.*/
-
+    in the end of the deque.
+     */
     public void addLast(T a) {
-        if(size == 0) {
+        if (size == 0) {
             sentinel.front = new IntList(sentinel, a, sentinel);
             sentinel.next = sentinel.front;
         } else {
@@ -49,13 +52,15 @@ public class LinkedListDeque<T> {
         size += 1;
     }
 
-    /** helper method determining whether a deque
-    is empty or not. If empty, return true, otherwise false */
+    /** helper method determining whether
+     *  a deque is empty or not. If empty,
+     *  return true, otherwise false
+     */
     public boolean isEmpty() {
         return this.size() == 0;
     }
 
-    /* method that returns the size of the deque */
+    /** method that returns the size of the deque */
     public int size() {
         if (size < 0) {
             return 0;
@@ -63,7 +68,7 @@ public class LinkedListDeque<T> {
         return size;
     }
 
-    /* method that prints the element of deque in order */
+    /** method that prints the element of deque in order */
     public void printDeque() {
         IntList p = sentinel.next;
         for (int i = 0; i < this.size(); i++) {
@@ -72,7 +77,7 @@ public class LinkedListDeque<T> {
         }
     }
 
-    /* method that removes the first item of a deque */
+    /** method that removes the first item of a deque */
     public T removeFirst() {
         if (sentinel.next == null) {
             return null;
@@ -85,7 +90,7 @@ public class LinkedListDeque<T> {
 
     }
 
-    /* method that removes the last item of a deque */
+    /** method that removes the last item of a deque */
     public T removeLast() {
         if (sentinel.front == null) {
             return null;
@@ -97,7 +102,7 @@ public class LinkedListDeque<T> {
         return result;
     }
 
-    /* method that returns an item given the index of that item */
+    /** method that returns an item given the index of that item */
     public T get(int index) {
         if (index > size - 1 || index < 0) {
             return null;
@@ -109,7 +114,7 @@ public class LinkedListDeque<T> {
         return p.item;
     }
 
-    /* methods that returns the items with specific index recursively */
+    /** methods that returns the items with specific index recursively */
 
     public T getRecursive(int index) {
         if (index > size - 1 || index < 0) {
