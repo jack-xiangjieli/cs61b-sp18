@@ -155,6 +155,6 @@ public class LinkedListDeque<T> {
         if (index == 0) {
             return curr.item;
         }
-        return getRecursive(index-0, curr.next);
+        return getRecursive(index - 1, curr.next);
     }
 }
