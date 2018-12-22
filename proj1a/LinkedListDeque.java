@@ -1,15 +1,20 @@
 /** create  a LinkedListDeque which
  * can expand in length without limit
- * @auther jack lee
  */
 public class LinkedListDeque<T> {
 
-    /* create a nested class IntList */
+    /** create a nested class IntList */
     private class IntList {
+        /**  the front of a node */
         private IntList front;
+
+        /** the item of a node */
         private T item;
+
+        /** the rest of a node */
         private IntList next;
 
+        /** constructor of a node */
         private IntList(IntList f, T i, IntList n) {
             front = f;
             item = i;
@@ -17,7 +22,15 @@ public class LinkedListDeque<T> {
         }
     }
 
+    /** declare a sentinel node that
+     * is always in the front of the
+     * first node of the deque
+     */
     private IntList sentinel;
+
+    /** declare an int variable that
+     * caches the current size of
+     * the deque */
     private int size;
 
     /** constructor of LinkedListDeque */
@@ -115,7 +128,6 @@ public class LinkedListDeque<T> {
     }
 
     /** methods that returns the items with specific index recursively */
-
     public T getRecursive(int index) {
         if (index > size - 1 || index < 0) {
             return null;
