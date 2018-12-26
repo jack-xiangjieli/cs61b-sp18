@@ -5,20 +5,20 @@
  * @version 1.0
  */
 public class ArrayDeque<T> {
-    /* an instance variable that caches the size of the array. */
+    /** an instance variable that caches the size of the array. */
     private int size;
-    /* instance variable that points to the index of
+    /** instance variable that points to the index of
        a position that will store the next first item. */
     private int nextfirst = 0;
 
-    /* instance variable that points to the index of
+    /** instance variable that points to the index of
       a position that will store the next last item. */
     private int nextlast = 1;
 
-    /* declare an array that will be the basic data structure. */
+    /** declare an array that will be the basic data structure. */
     private T[] a;
 
-    /* constructor of an empty ArrayDeque. */
+    /** constructor of an empty ArrayDeque. */
     public ArrayDeque() {
         a = (T[]) new Object[8];
         size = 0;
@@ -29,7 +29,9 @@ public class ArrayDeque<T> {
         return size;
     }
 
-    /** method that checks whether the deque is empty. */
+    /** method that checks whether the deque is empty.
+     * @return true is the ArrayDeque is empty.
+     */
     public boolean isEmpty() {
         return size == 0;
     }
@@ -49,6 +51,9 @@ public class ArrayDeque<T> {
         a = b;
     }
 
+    /** method that set the size down if any item
+     * is removed from the ArrayDeque.
+     */
     private void downsize() {
         T[] b = (T[]) new Object[a.length - 1];
         if (nextlast < nextfirst) {
@@ -59,7 +64,7 @@ public class ArrayDeque<T> {
             int dp = nextfirst;
             int len = size - nextlast;
             System.arraycopy(a, sp, b, dp, len);
-            nextfirst -=1;
+            nextfirst -= 1;
         } else {
             System.arraycopy(a, nextfirst, b, 0, size);
             if (nextfirst != 0) {
@@ -113,6 +118,7 @@ public class ArrayDeque<T> {
 
     /** method that removes the first item
     of the ArrayDeque and output the item removed.
+     @return the first item that is removed.
      */
     public T removeFirst() {
         if (size == 0) {
@@ -137,6 +143,7 @@ public class ArrayDeque<T> {
 
     /** method that removes the last item
     of the ArrayDeque and output the item removed.
+     @return the last item that is removed.
      */
     public T removeLast() {
         if (size == 0) {
@@ -176,6 +183,7 @@ public class ArrayDeque<T> {
     /** method that get the item of a
     ArrayDeque given the index.
      @param index the index of the item in the ArrayDeque.
+     @return the wanted item.
      */
     public T get(int index) {
         if (index > size - 1) {
