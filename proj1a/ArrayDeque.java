@@ -40,7 +40,7 @@ public class ArrayDeque<T> {
     than the length of the array.
      */
     private void resize() {
-        T[] b = (T[]) new Object[a.length+1];
+        T[] b = (T[]) new Object[a.length + 1];
         System.arraycopy(a, 0, b, 0, nextlast);
         if (nextlast <= size - 1) {
             int sp = nextlast + 2;
@@ -57,7 +57,7 @@ public class ArrayDeque<T> {
     private void downsize() {
         T[] b = (T[]) new Object[a.length - 1];
         if (nextlast < nextfirst) {
-            if ( nextlast != 0) {
+            if (nextlast != 0) {
                 System.arraycopy(a, 0, b, 0, nextlast);
             }
             int sp = nextfirst + 1;
@@ -175,7 +175,7 @@ public class ArrayDeque<T> {
             if (index == a.length) {
                 index = 0;
             }
-            System.out.print(a[index]+" ");
+            System.out.print(a[index] + " ");
             index += 1;
         }
     }
@@ -188,8 +188,7 @@ public class ArrayDeque<T> {
     public T get(int index) {
         if (index > size - 1) {
             return null;
-        }
-        else if (index <= a.length-nextfirst - 2) {
+        } else if (index <= a.length - nextfirst - 2) {
             return a[index + nextfirst + 1];
         } else {
             return a[index + nextfirst + 1 - a.length];
