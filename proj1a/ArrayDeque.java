@@ -67,7 +67,7 @@ public class ArrayDeque<T> {
             nextfirst -= 1;
         } else {
             int len = size + 2;
-            System.arraycopy(a, nextfirst , b, 0, len);
+            System.arraycopy(a, nextfirst, b, 0, len);
             if (nextfirst != 0) {
                 nextfirst -= 1;
                 nextlast -= 1;
@@ -93,7 +93,6 @@ public class ArrayDeque<T> {
         } else {
             nextfirst = nextfirst - 1;
         }
-
         size += 1;
     }
 
