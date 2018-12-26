@@ -139,7 +139,8 @@ public class LinkedListDeque<T> {
 
     /** method that returns the items with specific index recursively.
      * @param index  this is the index of the item that we want to get
-     * */
+     * @return wanted item
+     */
     public T getRecursive(int index) {
         if (index > size - 1 || index < 0) {
             return null;
@@ -147,9 +148,10 @@ public class LinkedListDeque<T> {
         return getRecursive(index, sentinel.next);
     }
 
-    /** method that was encapsulated by the method above
+    /** method that was encapsulated by the method above.
      * @param index the index of the item that we want to get
      * @param curr current IntList that the method is handling
+     * @return wanted item
       */
     private T getRecursive(int index, IntList curr) {
         if (index == 0) {

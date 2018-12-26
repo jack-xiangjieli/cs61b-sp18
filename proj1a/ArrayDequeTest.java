@@ -41,14 +41,12 @@ public class ArrayDequeTest {
     public void removeTest() {
         ArrayDeque<String> ld = new ArrayDeque();
         String a = "a";
-        for (int i = 0; i < 16; i++) {
-            ld.addFirst("a" + i);
+        for (int i = 0; i < 8; i++) {
+            ld.addLast("a" + i);
         }
-        ld.addLast("b");
         ld.removeFirst();
-        ld.removeLast();
-        int actual = ld.size();
-        Assert.assertEquals(15, actual);
+        String actual=ld.removeLast();
+        Assert.assertEquals("a7", actual);
     }
 
     @Test
