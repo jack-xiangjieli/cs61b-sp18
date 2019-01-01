@@ -5,7 +5,7 @@
  * @since 2018/12/22
  * @version 1.0
  */
-public class LinkedListDeque<T> {
+public class LinkedListDeque<T> implements Deque<T> {
 
     /** create a nested class IntList. */
     private class IntList {
@@ -45,6 +45,7 @@ public class LinkedListDeque<T> {
     /** utility method to add a item in the front of the deque.
      * @param item  this is the item that we want to add in the front
      * */
+    @Override
     public void addFirst(T item) {
         if (size == 0) {
             sentinel.next = new IntList(sentinel, item, sentinel);
@@ -59,6 +60,7 @@ public class LinkedListDeque<T> {
     /** utility method that can  add an item.
      * @param a  this is the item that we want to add in the end.
      * */
+    @Override
     public void addLast(T a) {
         if (size == 0) {
             sentinel.front = new IntList(sentinel, a, sentinel);
@@ -73,11 +75,13 @@ public class LinkedListDeque<T> {
     /** method determining whether a deque is empty or not.
      * @return  true if the deque is empty
      * */
+    @Override
     public boolean isEmpty() {
         return this.size() == 0;
     }
 
     /** method that returns the size of the deque. */
+    @Override
     public int size() {
         if (size < 0) {
             return 0;
@@ -86,6 +90,7 @@ public class LinkedListDeque<T> {
     }
 
     /** method that prints the element of deque in order. */
+    @Override
     public void printDeque() {
         IntList p = sentinel.next;
         for (int i = 0; i < this.size(); i++) {
@@ -97,6 +102,7 @@ public class LinkedListDeque<T> {
     /** method that removes the first item of a deque.
      * @return the item of the first node that we remove
      * */
+    @Override
     public T removeFirst() {
         if (sentinel.next == null) {
             return null;
@@ -112,6 +118,7 @@ public class LinkedListDeque<T> {
     /** method that removes the last item of a deque.
      * @return item of the last node that we remove
      * */
+    @Override
     public T removeLast() {
         if (sentinel.front == null) {
             return null;
@@ -126,6 +133,7 @@ public class LinkedListDeque<T> {
     /** method that returns an item given the index of that item.
      * @param index  this is the index of the item that we want to get
      * */
+    @Override
     public T get(int index) {
         if (index > size - 1 || index < 0) {
             return null;

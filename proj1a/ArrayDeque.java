@@ -4,7 +4,7 @@
  * @since 2018/12/26
  * @version 1.0
  */
-public class ArrayDeque<T> {
+public class ArrayDeque<T> implements Deque<T>{
     /** an instance variable that caches the size of the array. */
     private int size;
     /** instance variable that points to the index of
@@ -25,6 +25,7 @@ public class ArrayDeque<T> {
     }
 
     /** method that returns the size of the ArrayDeque. */
+    @Override
     public int size() {
         return size;
     }
@@ -32,6 +33,7 @@ public class ArrayDeque<T> {
     /** method that checks whether the deque is empty.
      * @return true is the ArrayDeque is empty.
      */
+    @Override
     public boolean isEmpty() {
         return size == 0;
     }
@@ -80,6 +82,7 @@ public class ArrayDeque<T> {
     previous ArrayDeque.
      @param item  the item to be added to the ArrayDeque.
      */
+    @Override
     public void addFirst(T item) {
         if (size >= a.length - 2) {
             resize();
@@ -100,6 +103,7 @@ public class ArrayDeque<T> {
     the previous ArrayDeque.
     @param item  the item to be added to the ArrayDeque.
      */
+    @Override
     public void addLast(T item) {
         if (size >= a.length - 2) {
             resize();
@@ -120,6 +124,7 @@ public class ArrayDeque<T> {
     of the ArrayDeque and output the item removed.
      @return the first item that is removed.
      */
+    @Override
     public T removeFirst() {
         if (size == 0) {
             return null;
@@ -145,6 +150,7 @@ public class ArrayDeque<T> {
     of the ArrayDeque and output the item removed.
      @return the last item that is removed.
      */
+    @Override
     public T removeLast() {
         if (size == 0) {
             return null;
@@ -169,6 +175,7 @@ public class ArrayDeque<T> {
     /** method that prints the item of
     the ArrayDeque by order.
      */
+    @Override
     public void printDeque() {
         int index = nextfirst + 1;
         for (int i = 0; i < size; i++) {
@@ -185,6 +192,7 @@ public class ArrayDeque<T> {
      @param index the index of the item in the ArrayDeque.
      @return the wanted item.
      */
+    @Override
     public T get(int index) {
         if (index > size - 1) {
             return null;
