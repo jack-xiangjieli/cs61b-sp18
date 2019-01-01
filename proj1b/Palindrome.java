@@ -1,3 +1,7 @@
+/** this class determines whether a word is
+ * palindrome or not.
+ * @author DELL
+ */
 public class Palindrome {
 
     /** method that put every character in a word in
@@ -24,24 +28,24 @@ public class Palindrome {
      * @param word the word given to be determined
      * @return true or false
      */
-  public boolean isPalindrome(String word) {
+    public boolean isPalindrome(String word) {
         Deque<Character> origin = wordToDeque(word);
         return isEqual(origin);
-  }
+    }
 
     /** helper method that runs recursively to determine whether
      * the characters at two ends are the same for a given word.
      * @param d input deque that contains characters of a single word
      * @return true if the characters at two ends are the same
      */
-  private boolean isEqual(Deque<Character> d) {
-      if (d.isEmpty() || d.size() == 1) {
-          return true;
-      }
-      char f = d.removeFirst();
-      char l = d.removeLast();
-      return f == l && isEqual(d);
-  }
+    private boolean isEqual(Deque<Character> d) {
+        if (d.isEmpty() || d.size() == 1) {
+            return true;
+        }
+        char f = d.removeFirst();
+        char l = d.removeLast();
+        return f == l && isEqual(d);
+    }
 
     /** method that determines whether a word is a off-by-one palindrome,
      * if so returns true, otherwise returns false.
@@ -49,10 +53,10 @@ public class Palindrome {
      * @param cc  off-by-n comparator
      * @return true or false
      */
-  public boolean isPalindrome(String word, CharacterComparator cc){
-      Deque<Character> origin = wordToDeque(word);
-      return isEqual(origin, cc);
-  }
+    public boolean isPalindrome(String word, CharacterComparator cc) {
+        Deque<Character> origin = wordToDeque(word);
+        return isEqual(origin, cc);
+    }
 
     /** helper method that runs recursively to determine whether
      * the characters at two ends are off-by-one for a given word.
@@ -60,14 +64,14 @@ public class Palindrome {
      * @param cc  off-by-n comparator
      * @return true if the characters at two ends are the same
      */
-  private boolean isEqual(Deque<Character> d, CharacterComparator cc){
-      if (d.isEmpty() || d.size() == 1) {
-          return true;
-      }
-      char f = d.removeFirst();
-      char l = d.removeLast();
-      return cc.equalChars(f,l) && isEqual(d, cc);
-  }
+    private boolean isEqual(Deque<Character> d, CharacterComparator cc){
+        if (d.isEmpty() || d.size() == 1) {
+            return true;
+        }
+        char f = d.removeFirst();
+        char l = d.removeLast();
+        return cc.equalChars(f, l) && isEqual(d, cc);
+    }
 }
 
 

@@ -1,9 +1,13 @@
-/** off-by-one comparator. */
-public class OffByN implements CharacterComparator{
+/** off-by-one comparator.
+ * @author DELL
+ */
+public class OffByN implements CharacterComparator {
     /** this integer determines N. */
     private int diff;
 
-    /** constructor of comparator. */
+    /** constructor of comparator.
+     * @param N determines the value to off-by
+     * */
     public OffByN(int N) {
         diff = N;
     }
