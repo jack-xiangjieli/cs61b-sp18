@@ -4,7 +4,7 @@
  * @since 2019/1/1
  */
 public interface Deque<T> {
-    /**  add an item
+    /**  add an item.
       * @param item to add
      */
     void addFirst(T item);
@@ -32,12 +32,12 @@ public interface Deque<T> {
      */
     T removeFirst();
 
-    /** remove the last item
+    /** remove the last item.
      * @return item to be removed
      */
     T removeLast();
 
-    /** get the item given the index
+    /** get the item given the index.
      * @param index the index of the item
      * @return the item
      */

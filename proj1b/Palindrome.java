@@ -64,7 +64,7 @@ public class Palindrome {
      * @param cc  off-by-n comparator
      * @return true if the characters at two ends are the same
      */
-    private boolean isEqual(Deque<Character> d, CharacterComparator cc){
+    private boolean isEqual(Deque<Character> d, CharacterComparator cc) {
         if (d.isEmpty() || d.size() == 1) {
             return true;
         }

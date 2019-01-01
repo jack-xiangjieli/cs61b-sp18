@@ -10,5 +10,4 @@ public class TestOffByOne {
     public void testEqualChars() {
         Assert.assertTrue(offByOne.equalChars('a', 'b'));
     }
-
 }
