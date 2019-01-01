@@ -4,6 +4,7 @@
  * */
 public class PalindromeFinder {
     /** main method.
+     * @param args fdd
     */
     public static void main(String[] args) {
         int minLength = 4;
